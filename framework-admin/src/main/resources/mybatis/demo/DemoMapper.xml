@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="info.ymjs.project.demo.mapper.DemoMapper">
+    
+    <resultMap type="Demo" id="DemoResult">
+        <result property="id"    column="id"    />
+        <result property="demoName"    column="demo_name"    />
+        <result property="demoAge"    column="demo_age"    />
+    </resultMap>
+	
+	<sql id="selectDemoVo">
+        select id, demo_name, demo_age from sys_demo
+    </sql>
+	
+    <select id="selectDemoList" parameterType="Demo" resultMap="DemoResult">
+        <include refid="selectDemoVo"/>
+        <where>  
+            <if test="id != null "> and id = #{id}</if>
+             <if test="demoName != null  and demoName != '' "> and demo_name = #{demoName}</if>
+             <if test="demoAge != null "> and demo_age = #{demoAge}</if>
+         </where>
+    </select>
+    
+    <select id="selectDemoById" parameterType="Integer" resultMap="DemoResult">
+        <include refid="selectDemoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertDemo" parameterType="Demo" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_demo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="demoName != null  and demoName != ''  ">demo_name,</if>
+			<if test="demoAge != null  ">demo_age,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="demoName != null  and demoName != ''  ">#{demoName},</if>
+			<if test="demoAge != null  ">#{demoAge},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateDemo" parameterType="Demo">
+        update sys_demo
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="demoName != null  and demoName != ''  ">demo_name = #{demoName},</if>
+            <if test="demoAge != null  ">demo_age = #{demoAge},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+	<delete id="deleteDemoById" parameterType="Integer">
+        delete from sys_demo where id = #{id}
+    </delete>
+	
+    <delete id="deleteDemoByIds" parameterType="String">
+        delete from sys_demo where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

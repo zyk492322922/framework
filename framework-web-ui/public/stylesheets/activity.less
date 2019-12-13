@@ -1,0 +1,193 @@
+@import 'common.less';
+.activity {
+  .nav-pills {
+    width: 1100/12rem;
+    margin: 0 auto;
+    li, li:hover {
+      a, a:hover {
+        border-radius: 0;
+        background: none;
+        font-size: 16/12rem;
+        font-weight: 400;
+        color: rgba(64, 64, 64, 1);
+        line-height: 16/12rem;
+      }
+    }
+    li.active, li.active:hover {
+      a, a:hover {
+        background: none;
+        font-size: 16/12rem;
+        font-weight: 400;
+        color: rgba(217, 15, 19, 1);
+        line-height: 16/12rem;
+      }
+    }
+  }
+  .banner{
+    img{
+      width: 100%;
+      height: 300/12rem;
+    }
+  }
+  .content{
+    .hot-activy{
+      .empty{
+        width: 174/12rem;
+        margin: 85/12rem auto 0 auto;
+        img{
+          width: 174/12rem;
+          height: 179/12rem;
+          margin-bottom: 45/12rem;
+        }
+        span{
+          width: 174/12rem;
+          height: 29/12rem;
+          font-size:14/12rem;
+          font-weight:400;
+          color:rgba(64,64,64,1);
+          line-height:20/12rem;
+          text-align: center;
+          display: block;
+          margin-bottom:85/12rem ;
+        }
+      }
+    }
+  }
+}
+
+
+/**************活动详情页面的样式****************/
+.detail{
+  width: 100%;
+  background:rgba(246,246,246,1);
+  padding-top: 30/12rem;
+  padding-bottom: 32/12rem;
+  .block{
+    width: 1100/12rem;
+    margin: 0 auto 29/12rem auto;
+    background: white;
+    .title{
+      width: 1100/12rem;
+      height: 60/12rem;
+      border-bottom:1px solid rgba(234,234,234,1);
+      font-size:18/12rem;
+      font-weight:500;
+      color:rgba(64,64,64,1);
+      line-height:60/12rem;
+      padding-left: 40/12rem;
+    }
+    .item{
+      width: 100%;
+      height:208/12rem;
+      border-bottom: 1px solid rgba(234,234,234,1);
+      position: relative;
+      .left{
+        float: left;
+        margin-left: 41/12rem;
+        margin-top: 29/12rem;
+        img{
+          width: 246/12rem;
+          height: 138/12rem;
+          display: block;
+        }
+      }
+      .right{
+        float: left;
+        margin-left: 40/12rem;
+        width: 708/12rem;
+        margin-top: 29/12rem;
+        .con{
+          width: 708/12rem;
+          height:56/12rem;
+          font-size:20/12rem;
+          font-weight:400;
+          color:rgba(217,15,19,1);
+          line-height:28/12rem;
+          display: block;
+        }
+        .time{
+          width: 304/12rem;
+          display: block;
+          float:left;
+          margin-top: 59/12rem;
+          span{
+            font-size:12/12rem;
+            color:rgba(64,64,64,1);
+            line-height:12/12rem;
+            height:12/12rem;
+            display: block;
+            margin-bottom: 10/12rem;
+          }
+        }
+      }
+      button{
+        width:118/12rem;
+        height:40/12rem;
+        background:rgba(217,15,19,1);
+        border-radius:4/12rem;
+        font-size:16/12rem;
+        font-family:PingFangSC-Regular,PingFang SC;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:40/12rem;
+        border: none;
+        position: absolute;
+        right: 47/12rem;
+        bottom: 30/12rem;
+      }
+    }
+    .contents{
+      width: 1020/12rem;
+      height: auto;
+      min-height: 100/12rem;
+      margin: 20/12rem auto 0 auto;
+    }
+  }
+  .noMarginB{
+    margin-bottom: 0;
+  }
+  .modal-dialog {
+    margin-top: 20%;
+    .modal-content {
+      width: 300/12rem;
+      height: 200/12rem;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 12/12rem;
+      text-align: center;
+      border: none;
+      position: relative;
+      img {
+        width: 65/12rem;
+        height: 65/12rem;
+        margin-top: 30/12rem;
+      }
+      span.text {
+        display: block;
+        font-size: 14/12rem;
+        font-weight: 400;
+        color: rgba(64, 64, 64, 1);
+        line-height: 14/12rem;
+        margin-top: 18/12rem;
+      }
+      a, a:hover {
+        width: 100%;
+        height: 50/12rem;
+        background: rgba(217, 15, 19, 1);
+        border-radius: 0px 0px 1rem 1rem;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        font-size: 16/12rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 50/12rem;
+        text-decoration: none;
+      }
+      .glyphicon {
+        position: absolute;
+        top: 15/12rem;
+        right: 10/12rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+//- 活动详情
+extends layout/index
+block append script
+  script(type='text/javascript',src='/javascript/activityDetail.js')
+block content
+  .detail
+    .block
+      .title
+        span 热门活动
+      .item
+        .left
+          img(src='/images/index/activy.jpg')
+        .right
+          span.con 上海市庆祝共产党成立98周年系列活动上海市庆祝共产党成立98周年系列活动上 海市庆祝共产党成立98周年系列活动
+          span.time
+            span 时间：2019年10月26日 ~ 2019年11月25日
+            span 免费
+          span.add.time
+            span 地点: 青岛市市南区海门路79号
+            span 主办方: 上海市市政府
+        button#GoEnter 立即报名
+    .block
+      .title
+        span 活动须知
+      .contents
+        | 活动须知
+    .block.noMarginB
+      .title
+        span 活动详情
+      .contents
+        | 活动详情
+    .modal.fade.bs-example-modal-sm#myModal(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+      .modal-dialog.modal-sm(role='document')
+        .modal-content
+          img(src='/images/index/modal-s.png')
+          span.text 恭喜您，报名成功
+          a 确定
+          span.glyphicon.glyphicon-remove.closeModal(aria-hidden='true')
+
+

@@ -1,0 +1,62 @@
+//- 默认布局模板
+doctype html
+html
+  head
+    block head
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+      meta(name='description', content='Bootstrap - 简洁、直观、强悍、移动设备优先的前端开发框架，让web开发更迅速、简单。')
+      meta(name='keywords', content='HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development')
+      meta(name='author', content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+      block title
+        title 沂蒙精神 - #{title}
+    block css
+      link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+      link(rel='stylesheet', href='/stylesheets/index.css')
+      link(rel='stylesheet', href='/stylesheets/user.css')
+      link(rel='stylesheet', href='/stylesheets/activity.css')
+  body
+    header.nav.navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#TaoistsNavBar', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #TaoistsNavBar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='/') 首页
+            li
+              a(href='/activity') 活动
+            li
+              a(href='#') 沂蒙精神
+            li
+              a(href='#') 红色货币
+            li
+              a(href='/user') 个人中心
+          .navbar-right
+            a.navbar-brand(href='#')
+              | 注册 | 登录
+    block content
+    footer
+      .cont
+        .text1
+          span.t1 沂蒙精神
+          span.t2 山东是革命老区，有着光荣传统，军民水乳交融、生死与共铸就的 沂蒙精神，对我们今天抓党的建设仍然具有十分重要的启示作用。 沂蒙精神与延安精神、井冈山精神、西柏坡精神一样，是党和国家 的宝贵精神财富，要不断结合新的时代条件发扬光大。
+          span.t3 —习近平
+        .line1
+        .text1.text2
+          span.t1 联系我们
+          span.t4.margin 联系电话：17521289987
+          span.t4 服务时间 9:00-18:00
+          span.t4 地址：上海市普陀区丹巴路99号c9座205室
+        .line1
+        .text3
+          img(src='/images/index/wx.jpg')
+          span 关注我们
+    block script
+      script(src='https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js')
+      script(src='https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js')
+

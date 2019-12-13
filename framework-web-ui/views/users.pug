@@ -1,0 +1,84 @@
+//- 用户中心
+extends layout/index
+block content
+  .user
+    .info
+      .title
+        span 个人信息
+      .con
+        .text
+          .line
+            span.name 用户名：
+            span.val YM00001
+          .line
+            span.name 手机号：
+            span.val 13869813136
+        .text
+          .line
+            span.name 姓名：
+            span.val 朱希纳省
+          .line
+            span.name 性别：
+            span.val 男
+        .border
+        .text
+          .line.line3
+            span.name.name3 上次登录时间：
+            span.val.val3 2019-12-12
+          .line.line3
+            span.name.name3 登录密码：
+            span.val.val3.psd ******
+            a 修改
+    .list
+      table.table.table-bordered
+        caption 报名活动
+        thead
+          tr.active
+            th.td1 序号
+            th 活动
+            th 活动时间
+            th 报名时间
+            th 状态
+        tbody
+          tr
+            td.td1 1
+            td 沂蒙精神代代传
+            td 2019-12-12
+            td 2019-12-11
+            td 进行中
+          tr.active
+            td.td1 1
+            td 沂蒙精神代代传
+            td 2019-12-12
+            td 2019-12-11
+            td 进行中
+          tr.border-bottom
+            td.td1 1
+            td 沂蒙精神代代传
+            td 2019-12-12
+            td 2019-12-11
+            td 进行中
+      .empty
+        img(src='/images/user/data-empty.png')
+        span 暂无报名活动
+      .page
+        ul.pagination
+          li
+            a(href='#') 上一页
+          li
+            a(href='#') 1
+          li
+            a(href='#') 2
+          li
+            a(href='#') 3
+          li
+            a(href='#') 4
+          li
+            a(href='#') 5
+          li
+            a(href='#') 下一页
+
+
+
+
+

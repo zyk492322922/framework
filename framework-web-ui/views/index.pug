@@ -1,0 +1,63 @@
+//- 首页
+extends layout/index
+block content
+  .banner
+    .bs-example(data-example-id='simple-carousel')
+      #carousel-example-generic.carousel.slide(data-ride='carousel')
+        //ol.carousel-indicators
+        //  li.active(data-target='#carousel-example-generic', data-slide-to='0')
+        //  li(data-target='#carousel-example-generic', data-slide-to='1')
+        .carousel-inner(role='listbox')
+          .item.active
+            img(data-src='', alt='banner1', src='/images/index/banner1-1.png', data-holder-rendered='true')
+          .item
+            img(data-src='', alt='banner2', src='/images/index/banner1-1.png', data-holder-rendered='true')
+        a.left.carousel-control(href='#carousel-example-generic', role='button', data-slide='prev')
+          span.glyphicon(aria-hidden='true')
+            img.banner-left(src='/images/index/banner-left.png')
+          span.sr-only Previous
+        a.right.carousel-control(href='#carousel-example-generic', role='button', data-slide='next')
+          span.glyphicon(aria-hidden='true')
+            img.banner-right(src='/images/index/banner-right.png')
+          span.sr-only Next
+  .content
+    .ad
+      img.ad1(src='/images/index/ad-1.png')
+      img.ad2(src='/images/index/ad-2.png')
+    .hot-activy
+      span.title
+        span 热门活动
+      .list
+        .item
+          .left
+            img(src='/images/index/activy.jpg')
+          .right
+            span.con 上海市庆祝共产党成立98周年系列活动上海市庆祝共产党成立98周年系列活动上 海市庆祝共产党成立98周年系列活动
+            span.time
+              span 时间：2019年10月26日 ~ 2019年11月25日
+              span 免费
+            span.add.time
+              span 地点: 青岛市市南区海门路79号
+              span 主办方: 上海市市政府
+        .item
+          .left
+            img(src='/images/index/activy.jpg')
+          .right
+            span.con 上海市庆祝共产党成立98周年系列活动上海市庆祝共产党成立98周年系列活动上 海市庆祝共产党成立98周年系列活动
+            span.time
+              span 时间：2019年10月26日 ~ 2019年11月25日
+              span 免费
+            span.add.time
+              span 地点: 青岛市市南区海门路79号
+              span 主办方: 上海市市政府
+        .item
+          .left
+            img(src='/images/index/activy.jpg')
+          .right
+            span.con 上海市庆祝共产党成立98周年系列活动上海市庆祝共产党成立98周年系列活动上 海市庆祝共产党成立98周年系列活动
+            span.time
+              span 时间：2019年10月26日 ~ 2019年11月25日
+              span 免费
+            span.add.time
+              span 地点: 青岛市市南区海门路79号
+              span 主办方: 上海市市政府

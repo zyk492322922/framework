@@ -1,0 +1,12 @@
+
+spring:
+  application: 
+    name: yimeng-api
+  profiles:
+    active: dev
+
+server:
+  port: 8089
+
+yimeng:
+  version: 1.0.0

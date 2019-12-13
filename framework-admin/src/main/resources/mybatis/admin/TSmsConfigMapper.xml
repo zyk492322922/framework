@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="info.ymjs.project.admin.sms.mapper.TSmsConfigMapper">
+    
+    <resultMap type="TSmsConfig" id="TSmsConfigResult">
+        <result property="id"    column="id"    />
+        <result property="mobile"    column="mobile"    />
+        <result property="smsContent"    column="sms_content"    />
+        <result property="smsType"    column="sms_type"    />
+        <result property="sendStatus"    column="send_status"    />
+        <result property="createUserId"    column="create_user_id"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
+    <sql id="selectTSmsConfigVo">
+        select id, mobile, sms_content, sms_type, send_status, create_user_id, create_time from t_sms_config
+    </sql>
+
+    <select id="selectTSmsConfigList" parameterType="TSmsConfig" resultMap="TSmsConfigResult">
+        <include refid="selectTSmsConfigVo"/>
+        <where>  
+            <if test="mobile != null  and mobile != ''"> and mobile = #{mobile}</if>
+            <if test="smsType != null  and smsType != ''"> and sms_type = #{smsType}</if>
+            <if test="sendStatus != null "> and send_status = #{sendStatus}</if>
+            <if test="createTime != null "> and create_time = #{createTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectTSmsConfigById" parameterType="Long" resultMap="TSmsConfigResult">
+        <include refid="selectTSmsConfigVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTSmsConfig" parameterType="TSmsConfig" useGeneratedKeys="true" keyProperty="id">
+        insert into t_sms_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mobile != null  and mobile != ''">mobile,</if>
+            <if test="smsContent != null  and smsContent != ''">sms_content,</if>
+            <if test="smsType != null  and smsType != ''">sms_type,</if>
+            <if test="sendStatus != null ">send_status,</if>
+            <if test="createUserId != null ">create_user_id,</if>
+            <if test="createTime != null ">create_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mobile != null  and mobile != ''">#{mobile},</if>
+            <if test="smsContent != null  and smsContent != ''">#{smsContent},</if>
+            <if test="smsType != null  and smsType != ''">#{smsType},</if>
+            <if test="sendStatus != null ">#{sendStatus},</if>
+            <if test="createUserId != null ">#{createUserId},</if>
+            <if test="createTime != null ">#{createTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTSmsConfig" parameterType="TSmsConfig">
+        update t_sms_config
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mobile != null  and mobile != ''">mobile = #{mobile},</if>
+            <if test="smsContent != null  and smsContent != ''">sms_content = #{smsContent},</if>
+            <if test="smsType != null  and smsType != ''">sms_type = #{smsType},</if>
+            <if test="sendStatus != null ">send_status = #{sendStatus},</if>
+            <if test="createUserId != null ">create_user_id = #{createUserId},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTSmsConfigById" parameterType="Long">
+        delete from t_sms_config where id = #{id}
+    </delete>
+
+    <delete id="deleteTSmsConfigByIds" parameterType="String">
+        delete from t_sms_config where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

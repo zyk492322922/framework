@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="info.ymjs.project.admin.user.mapper.TUserMapper">
+    
+    <resultMap type="TUser" id="TUserResult">
+        <result property="userId"    column="user_id"    />
+        <result property="mobile"    column="mobile"    />
+        <result property="email"    column="email"    />
+        <result property="password"    column="password"    />
+        <result property="status"    column="status"    />
+        <result property="sex"    column="sex"    />
+        <result property="iconUrl"    column="icon_url"    />
+        <result property="regIp"    column="reg_ip"    />
+        <result property="regTime"    column="reg_time"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="lastLoginTime"    column="last_login_time"    />
+        <result property="name"    column="name"    />
+    </resultMap>
+
+    <sql id="selectTUserVo">
+        select user_id, mobile, email, password, status, sex, icon_url, reg_ip, reg_time, create_time, del_flag, update_time, last_login_time, name from t_user
+    </sql>
+
+    <select id="selectTUserList" parameterType="TUser" resultMap="TUserResult">
+        <include refid="selectTUserVo"/>
+        <where>  
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="mobile != null  and mobile != ''"> and mobile = #{mobile}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="sex != null "> and sex = #{sex}</if>
+            <if test="regTime != null "> and reg_time = #{regTime}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            and del_flag=0
+        </where>
+    </select>
+    
+    <select id="selectTUserById" parameterType="Long" resultMap="TUserResult">
+        <include refid="selectTUserVo"/>
+        where user_id = #{userId}
+    </select>
+        
+    <insert id="insertTUser" parameterType="TUser" useGeneratedKeys="true" keyProperty="userId">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mobile != null  and mobile != ''">mobile,</if>
+            <if test="email != null  and email != ''">email,</if>
+            <if test="password != null  and password != ''">password,</if>
+            <if test="status != null ">status,</if>
+            <if test="sex != null ">sex,</if>
+            <if test="iconUrl != null  and iconUrl != ''">icon_url,</if>
+            <if test="regIp != null  and regIp != ''">reg_ip,</if>
+            <if test="regTime != null ">reg_time,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="delFlag != null ">del_flag,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="lastLoginTime != null ">last_login_time,</if>
+            <if test="name != null  and name != ''">name,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mobile != null  and mobile != ''">#{mobile},</if>
+            <if test="bankMobile != null  and bankMobile != ''">#{bankMobile},</if>
+            <if test="email != null  and email != ''">#{email},</if>
+            <if test="password != null  and password != ''">#{password},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="sex != null ">#{sex},</if>
+            <if test="iconUrl != null  and iconUrl != ''">#{iconUrl},</if>
+            <if test="regIp != null  and regIp != ''">#{regIp},</if>
+            <if test="regTime != null ">#{regTime},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="delFlag != null ">#{delFlag},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="lastLoginTime != null ">#{lastLoginTime},</if>
+            <if test="name != null  and name != ''">#{name},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTUser" parameterType="TUser">
+        update t_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mobile != null  and mobile != ''">mobile = #{mobile},</if>
+            <if test="email != null  and email != ''">email = #{email},</if>
+            <if test="password != null  and password != ''">password = #{password},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="sex != null ">sex = #{sex},</if>
+            <if test="iconUrl != null  and iconUrl != ''">icon_url = #{iconUrl},</if>
+            <if test="regIp != null  and regIp != ''">reg_ip = #{regIp},</if>
+            <if test="regTime != null ">reg_time = #{regTime},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="delFlag != null ">del_flag = #{delFlag},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="lastLoginTime != null ">last_login_time = #{lastLoginTime},</if>
+            <if test="name != null  and name != ''">name = #{name},</if>
+        </trim>
+        where user_id = #{userId}
+    </update>
+
+    <delete id="deleteTUserById" parameterType="Long">
+        update t_user set del_flag =1 where user_id = #{userId}
+    </delete>
+
+    <delete id="deleteTUserByIds" parameterType="String">
+        delete from t_user where user_id in 
+        <foreach item="userId" collection="array" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+    
+</mapper>
