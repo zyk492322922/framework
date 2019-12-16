@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="info.ymjs.project.admin.activity.mapper.TActivityMapper">
+<mapper namespace="com.zyk.project.admin.activity.mapper.TActivityMapper">
 
     <resultMap type="TActivity" id="TActivityResult">
         <result property="id"    column="id"    />

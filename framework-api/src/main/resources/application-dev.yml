@@ -29,10 +29,10 @@ datasource:
    # 使用druid数据源
   type: com.zaxxer.hikari.HikariDataSource
   aop:
-    scan: execution(* info.ymjs..*Service.*(..))
+    scan: execution(* com.zyk..*Service.*(..))
 #主库
   write:
-    jdbc-url: jdbc:p6spy:mysql://192.168.99.100:3306/adminFramework?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    jdbc-url: jdbc:p6spy:mysql://192.168.99.100:3306/admin_framework?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: docker_user
     password: 378541
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver
@@ -51,7 +51,7 @@ datasource:
     poolPreparedStatements: true
     maxOpenPreparedStatements: -1
   read1:
-    jdbc-url: jdbc:p6spy:mysql://192.168.99.100:3306/adminFramework?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    jdbc-url: jdbc:p6spy:mysql://192.168.99.100:3306/admin_framework?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: docker_user
     password: 378541
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver

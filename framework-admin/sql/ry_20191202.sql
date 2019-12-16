@@ -671,3 +671,19 @@ create table gen_table_column (
   update_time       datetime                                   comment '更新时间',
   primary key (column_id)
 ) engine=innodb auto_increment=1 comment = '代码生成业务表字段';
+
+-- --------
+-- demo表
+-- --------
+CREATE TABLE IF NOT EXISTS `sys_demo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `demo_name` varchar(50) NOT NULL DEFAULT '0' COMMENT '姓名',
+  `demo_age` int(11) NOT NULL DEFAULT '0' COMMENT '年龄',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='测试表';
+
+
+INSERT INTO `sys_demo` (`id`, `demo_name`, `demo_age`) VALUES
+	(1, 'ssssss', 48),
+	(2, 'demo2', 465),
+	(3, 'demo3', 55);
