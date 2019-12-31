@@ -149,7 +149,7 @@ public class ChineseUpMoneyUtil {
 
     //ChineseUpMoneyUtil
     public static void main(String[] args) {
-        String number = "12000.56";
+        String number = "12000.00";
         System.out.println(number + ": " + ChineseUpMoneyUtil.toChinese(number));
 
         number = "1234567890563886.123";
